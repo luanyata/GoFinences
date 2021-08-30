@@ -1,9 +1,9 @@
-import styled from "styled-components/native";
-import { Feather } from '@expo/vector-icons'
-import { RFValue } from 'react-native-responsive-fontsize'
+import styled from 'styled-components/native';
+import { Feather } from '@expo/vector-icons';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 interface TransactionProps {
-  type: 'positive' | 'negative'
+  type: 'positive' | 'negative';
 }
 
 export const Container = styled.View`
@@ -42,17 +42,17 @@ export const Category = styled.View`
 `;
 
 export const Icon = styled(Feather)`
-   font-size: ${RFValue(20)}px;
-   color: ${({ theme }) => theme.colors.text};
+  font-size: ${RFValue(20)}px;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const CategoryName = styled.Text`
-   font-size: ${RFValue(14)}px;
-   color: ${({ theme }) => theme.colors.text};
-   margin-left: 17px;
+  font-size: ${RFValue(14)}px;
+  color: ${({ theme }) => theme.colors.text};
+  margin-left: 17px;
 `;
 
 export const Date = styled.Text`
-   font-size: ${RFValue(14)}px;
-   color: ${({ theme }) => theme.colors.text};
+  font-size: ${RFValue(14)}px;
+  color: ${({ theme }) => theme.colors.text};
 `;

@@ -1,21 +1,33 @@
-import React from 'react'
-import { Container, Header, Title, Icon, Footer, Amount, LastTransaction } from './styles'
-
+import React from 'react';
+import {
+  Container,
+  Header,
+  Title,
+  Icon,
+  Footer,
+  Amount,
+  LastTransaction,
+} from './styles';
 
 interface Props {
   title: string;
   amount: string;
   lastTransaction: string;
-  type: 'up' | 'down' | 'total'
+  type: 'up' | 'down' | 'total';
 }
 
 const icon = {
   up: 'arrow-up-circle',
   down: 'arrow-down-circle',
-  total: 'dollar-sign'
-}
+  total: 'dollar-sign',
+};
 
-export function HighlightCard({ amount, lastTransaction, title, type }: Props) {
+const HighlightCard: React.FC<Props> = ({
+  amount,
+  lastTransaction,
+  title,
+  type,
+}: Props) => {
   return (
     <Container type={type}>
       <Header>
@@ -24,13 +36,11 @@ export function HighlightCard({ amount, lastTransaction, title, type }: Props) {
       </Header>
 
       <Footer>
-        <Amount type={type}>
-          {amount}
-        </Amount>
-        <LastTransaction type={type}>
-          {lastTransaction}
-        </LastTransaction>
+        <Amount type={type}>{amount}</Amount>
+        <LastTransaction type={type}>{lastTransaction}</LastTransaction>
       </Footer>
     </Container>
-  )
-}
+  );
+};
+
+export default HighlightCard;

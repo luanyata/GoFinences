@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Container,
   Title,
@@ -7,9 +7,8 @@ import {
   Category,
   Icon,
   CategoryName,
-  Date
-
-} from "./styles";
+  Date,
+} from './styles';
 
 interface Category {
   name: string;
@@ -17,7 +16,7 @@ interface Category {
 }
 
 export interface TransactionCardProps {
-  type: 'positive' | 'negative'
+  type: 'positive' | 'negative';
   title: string;
   amount: string;
   category: Category;
@@ -25,10 +24,10 @@ export interface TransactionCardProps {
 }
 
 interface Props {
-  data: TransactionCardProps
+  data: TransactionCardProps;
 }
 
-export function TransactionCard({ data }: Props) {
+const TransactionCard: React.FC<Props> = ({ data }: Props) => {
   return (
     <Container>
       <Title>{data.title}</Title>
@@ -45,5 +44,7 @@ export function TransactionCard({ data }: Props) {
         <Date>{data.date}</Date>
       </Footer>
     </Container>
-  )
-}
+  );
+};
+
+export default TransactionCard;
