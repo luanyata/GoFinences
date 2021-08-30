@@ -11,7 +11,7 @@ import {
 } from '@expo-google-fonts/poppins';
 
 import theme from './src/global/styles/theme';
-import Dashboard from './src/screens/Register';
+import Categories from './src/screens/Register';
 
 const App: React.FC = () => {
   const [fontsLoaded] = useFonts({
@@ -26,7 +26,7 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Dashboard />
+      <Categories />
     </ThemeProvider>
   );
 };
