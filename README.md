@@ -16,7 +16,8 @@
   </a>
 </p>
 
-<img alt="License" src="./prints/home.png">
+<img alt="dashboard" width="200" src="./prints/dashboard.png">
+<img alt="register" width="200" src="./prints/register.png">
 
 
 ## Sobre:
