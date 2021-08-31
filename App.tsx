@@ -10,8 +10,9 @@ import {
   Poppins_700Bold,
 } from '@expo-google-fonts/poppins';
 
+import { NavigationContainer } from '@react-navigation/native';
 import theme from './src/global/styles/theme';
-import Categories from './src/screens/Register';
+import AppRoutes from './src/routers/app.routes';
 
 const App: React.FC = () => {
   const [fontsLoaded] = useFonts({
@@ -26,7 +27,9 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Categories />
+      <NavigationContainer>
+        <AppRoutes />
+      </NavigationContainer>
     </ThemeProvider>
   );
 };

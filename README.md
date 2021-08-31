@@ -16,6 +16,9 @@
   </a>
 </p>
 
+<img alt="License" src="./prints/home.png">
+
+
 ## Sobre:
 
 App para Controle Finnanceiro
