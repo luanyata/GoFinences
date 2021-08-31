@@ -54,6 +54,12 @@ App para Controle Finnanceiro
   yarn
 ```
 ---
+
+### Instalar os Pods (No IOS)
+
+```
+npx pod-install ios
+```
 ### Executar Aplicação:
   ```bash
     expo start
