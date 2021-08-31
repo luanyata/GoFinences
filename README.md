@@ -16,8 +16,9 @@
   </a>
 </p>
 
-<img alt="dashboard" width="200" src="./prints/dashboard.png">
-<img alt="register" width="200" src="./prints/register.png">
+<p align="center">
+<img alt="dashboard"  width="200" src="./prints/dashboard.png">
+<img alt="register"  width="200" src="./prints/register.png">
 
 
 ## Sobre:
