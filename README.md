@@ -24,6 +24,9 @@ App para Controle Finnanceiro
 * React Native
 * React Native iPhone X Helper
 * React Native Responsive Fontsize
+* React Hook Form
+* Hook Form Resolvers
+* Yup
 * Expo
 * Expo App Loading
 * Expo Fonts

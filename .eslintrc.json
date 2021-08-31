@@ -26,6 +26,7 @@
     "prettier"
   ],
   "rules": {
+    "consistent-return":"off",
     "prettier/prettier": "error",
     "react/jsx-props-no-spreading": "off",
     "react-hooks/rules-of-hooks": "error",
