@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Alert } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 import {
   Container,
   Header,
@@ -25,33 +28,65 @@ export interface DataListProps extends TransactionCardProps {
 }
 
 const Dashboard: React.FC = () => {
-  const transactions: DataListProps[] = [
-    {
-      id: '1',
-      type: 'positive',
-      title: 'Torneio do Poder',
-      amount: 'R$ 12.000,00',
-      category: { icon: 'dollar-sign', name: 'Torneio' },
-      date: '20/08/2021',
-    },
-    {
-      id: '2',
-      type: 'negative',
-      title: 'Livros Gohan',
-      amount: 'R$ 1.000,00',
-      category: { icon: 'book', name: 'Estudo' },
-      date: '20/08/2021',
-    },
+  const [transactions, setTransactions] = useState<DataListProps[]>([]);
+  const dataKey = '@gofinances:transactions';
 
-    {
-      id: '3',
-      type: 'negative',
-      title: 'Comida Sr Beerus',
-      amount: 'R$ 5.000,00',
-      category: { icon: 'coffee', name: 'Alimentação' },
-      date: '20/08/2021',
-    },
-  ];
+  useEffect(() => {
+    async function removeAll() {
+      await AsyncStorage.removeItem(dataKey);
+    }
+
+    // removeAll();
+  }, []);
+
+  const loadTransactions = async () => {
+    try {
+      const response = await AsyncStorage.getItem(dataKey);
+      const registers = response ? JSON.parse(response) : [];
+
+      const transactionsFormatted: DataListProps[] = registers.map(
+        (item: DataListProps) => {
+          const { category, id, name, type } = item;
+
+          const amount = Number(item.amount).toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          });
+
+          const date = Intl.DateTimeFormat('pt-BR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: '2-digit',
+          }).format(new Date(item.date));
+
+          const reg = {
+            id,
+            name,
+            amount,
+            category,
+            date,
+            type,
+          };
+
+          return reg;
+        },
+      );
+
+      setTransactions(transactionsFormatted);
+    } catch (error) {
+      Alert.alert('Falha ao carregar as transações');
+    }
+  };
+
+  useEffect(() => {
+    loadTransactions();
+  }, []);
+
+  useFocusEffect(
+    useCallback(() => {
+      loadTransactions();
+    }, []),
+  );
 
   return (
     <Container>

@@ -83,11 +83,11 @@ const Register: React.FC = () => {
 
     const { name, amount } = form;
 
-    const newTransactions = {
+    const newTransaction = {
       id: String(uuid.v4()),
       name,
       amount,
-      transactionType,
+      type: transactionType,
       category: category.key,
       date: new Date(),
     };
@@ -99,7 +99,7 @@ const Register: React.FC = () => {
         ? JSON.parse(storageTransations)
         : [];
 
-      const dataFormatted = [...currentData, newTransactions];
+      const dataFormatted = [...currentData, newTransaction];
 
       await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted));
 
